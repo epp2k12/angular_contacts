@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+<meta lang="en">
+<script type="text/javascript" src="assets/js/angular.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/mycontroller.js"></script>
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<title>Contacts Manager</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    		<button type="button" class="navbar-toggle"	data-toggle="collapse" data-target="#nav-toggle">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+      <a class="navbar-brand" href="#">Contacts Manager</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Browse</a></li>
+      <li><a href="/add">Add Contact</a></li>
+     </ul>
+	<form class="navbar-form navbar-right" role="search">
+		<input type="text" class="form-control"	placeholder="Search">
+	</form>
+  </div>
+</nav>
+
+<div class="container">
+<div class="row">
+
+<div class="col-sm-8">
+{{ 123456 | currency }} <br/>
+This is our content area
+	<div class="row"  ng-controller="AppCtrl">
+		<div class="col-sm-6">
+
+			<p>Lorem ipsum dolor...</p>
+
+			<div class="col-sm-8" style="border:1px solid red">
+				<button style="width:100%" ng-click="mouseOverHandler()">Click Me</button>
+			</div>
+
+			<div class="col-sm-8" ng-if="toggleValue">
+				<p>Click the button above to toggle.</p>
+			</div>
+
+			<div class="row">
+			<div class="col-sm-12">
+			<ul ng-controller="DataCtrl">
+				<li ng-repeat="plant in plants | orderBy:'name': true ">
+					{{ plant.name }} || {{ plant.type }}
+				</li>
+			</ul>
+			</div>
+			</div>
+
+			<div class="row" ng-controller="DataCtrl">
+			<p class="text-danger">THIS IS TEXT DANGER!</p>
+			<p ng-class="{'text-center': center, 'text-danger': error }"> I AM THE SAMPLE TEXT </p>
+			<p ng-style="updateCSS()"> MY cSS WILL CHANGE!</p>
+
+			<input ng-model="center" type="checkbox">Center Align<br/>
+			<input ng-model="error" type="checkbox">TExt Error<br/>			
+			<input ng-model="cssStyler" type="checkbox">Update CSS<br/>	
+
+			<hr>
+			{{ 123456.1278 | currency }}
+			<br/>
+			{{ 123456789 | currency:'P' }}
+			<br/>
+			{{12345.225678 | number:3 }}
+			<br/>
+			{{725508723000 | date:'dd/MM/yyyy'}}
+			<br/>
+			{{'Lorem ipsum dolor sit amet' | truncate:10 | uppercase }}
+			<br/>
+			{{'Lorem ipsum dolor sit amet' | limitTo:10 | lowercase }}
+			<br/>
+
+			<input type="text" ng-model="search.name">
+			<ul>
+			<li ng-repeat="plant in plants | filter:search">
+			{{ plant.name }} === {{ plant.type }}
+			</li>
+			</ul>
+			<br/>
+			This is where Jason Comes in : <br/>
+			{{ plants | json }}
+			<hr/>
+
+			<script>
+			console.log("-------------------> hello world!");
+			</script>
+			</div>
+
+
+
+
+
+		</div>
+		<div class="col-sm-6">
+			<p>Class aptent taciti...</p>
+		</div>
+	</div>
+</div>
+
+<div class="col-sm-4">
+Here is our sidebar
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

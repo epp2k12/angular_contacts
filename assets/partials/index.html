@@ -1,0 +1,30 @@
+<div class="jumbotron">
+<h1> ALL CONTACTS</h1>
+</div>
+
+<div class="table-responsive" style="width:100%;border:1px solid orange">
+<table class="table-condensed table-bordered table-striped" style="width:100%">
+<thead>
+<tr style="background-color:orange">
+<th>$index</th>
+<th>Name</th>
+<th>Email Address</th>
+<th>Phone Number</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="contact in contacts | filter:search : false">
+<td>{{$index}}</td>
+<td>{{contact.name}}</td>
+<td>{{contact.email}}</td>
+<td>{{contact.phone}}</td>
+<td><a href="http://localhost/angularjs/angular_contacts/#/contact/{{$index}}" class="btn btn-default btnxs">
+View</a></td>
+
+</tr>
+</tbody>
+</table>
+
+
+</div>
